@@ -1,6 +1,7 @@
 import { ChatTeardropDots } from 'phosphor-react';
 // import { useState } from 'react';
 import { Popover } from '@headlessui/react'; // já controla estado de aberto/fechado
+import { WidgetForm } from './WidgetForm';
 
 export function Widget() {
   // const [isWidgetOpen, setIsWidgetOpen] = useState(false);
@@ -10,10 +11,12 @@ export function Widget() {
   // }
 
   return (
-    <Popover className="absolute bottom-5 right-5">
+    <Popover className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex flex-col items-end">
       {/* { isWidgetOpen ? <p>Hello World</p> : null} */}
       {/* { isWidgetOpen && <p>Hello World</p> } */}
-      <Popover.Panel>Hello World</Popover.Panel>
+      <Popover.Panel>
+        <WidgetForm />
+      </Popover.Panel>
       
       <Popover.Button
         // onClick={toggleWidgetVisibility}
