@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Entidade de conexão com o DB
+model Feedback {
+  // colunas da tabela | '@id' indica a Primary Key | '@default(uuid())' padrão de implementação automática
+  id String @id @default(uuid())
+
+  // Se precisar setar um tipo específico do DB
+  // type @db.VarChar(200)
+  type       String
+  comment    String
+  // '?' significa que é opcional, ou seja, nullable
+  screenshot String?
+
+  // Nome das tabela (plural e minúsculo)
+  @@map("feedbacks")
+}
